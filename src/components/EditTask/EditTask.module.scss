@@ -1,10 +1,17 @@
 @import "./../../scss/import";
 
 .edit {
-    position: absolute;
-    left: 19px;
-    top: 50%;
     display: block;
-    transform: translateY(-50%);
-    width: 400px;
+    width: 100%;
+}
+
+.input {
+    padding: 4px 11px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.apply {
+    background-color: $color-white !important;
+    border: 0 !important;
 }

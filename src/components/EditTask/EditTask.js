@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import classes from "./EditTask.module.scss";
 
+import { Form, Button, InputGroup, InputGroupAddon, Input } from "reactstrap";
+import { GoCheck } from "react-icons/go";
 import OutsideClickHandler from "react-outside-click-handler";
 
 export default class EditTask extends Component {
@@ -16,10 +18,9 @@ export default class EditTask extends Component {
             value: e.target.value,
         });
     };
-    handleEnterKeydown = (e) => {
-        if (e.code === "Enter") {
-            this.props.handleTaskEditComplete(this.props.task.id, e);
-        }
+
+    handleSubmit = (e) => {
+        this.props.handleTaskEditComplete(this.props.task.id, e);
     };
 
     handleEscKeydown = (e) => {
@@ -28,30 +29,36 @@ export default class EditTask extends Component {
         }
     };
 
-    handleClickOutside = (e) => {};
-
     componentDidMount() {
-        console.log(this);
         document.addEventListener("keydown", this.handleEscKeydown);
-        document.addEventListener("keydown", this.handleEnterKeydown);
     }
     componentWillUnmount() {
         document.removeEventListener("keydown", this.handleEscKeydown);
-        document.removeEventListener("keydown", this.handleEnterKeydown);
     }
 
     render() {
         return (
-            <OutsideClickHandler
-                onOutsideClick={() => this.props.handleTaskEditBtnClick(this.props.task.id)}>
-                <input
-                    className={classes.edit}
-                    type="text"
-                    value={this.state.value}
-                    autoFocus={true}
-                    onChange={this.handleChange}
-                />
-            </OutsideClickHandler>
+            <div className={classes.edit}>
+                <OutsideClickHandler
+                    onOutsideClick={() => this.props.handleTaskEditBtnClick(this.props.task.id)}>
+                    <Form onSubmit={this.handleSubmit}>
+                        <InputGroup>
+                            <Input
+                                className={classes.input}
+                                nane="value"
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                                autoFocus={true}
+                            />
+                            <InputGroupAddon addonType="prepend">
+                                <Button className={classes.apply}>
+                                    <GoCheck color="green" />
+                                </Button>
+                            </InputGroupAddon>
+                        </InputGroup>
+                    </Form>
+                </OutsideClickHandler>
+            </div>
         );
     }
 }

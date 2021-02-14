@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import classes from "./AddTask.module.scss";
-// import Button from "./../Button/Button";
 
 import { Form, Button, InputGroup, InputGroupAddon, Input } from "reactstrap";
 

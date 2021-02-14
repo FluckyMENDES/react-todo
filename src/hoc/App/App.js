@@ -56,9 +56,11 @@ export default class App extends Component {
         });
     };
     handleTaskEditComplete = (id, e) => {
+        e.preventDefault();
         const tasks = this.state.tasks.slice();
         const task = tasks.find((task) => task.id === id);
-        const newValue = e.target.value;
+        // console.dir(e.target.querySelector("input").value);
+        const newValue = e.target.querySelector("input").value;
         task.desc = newValue;
         task.isEditing = false;
 

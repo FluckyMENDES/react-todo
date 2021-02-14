@@ -8,17 +8,19 @@ import { IoTrash, IoStar, IoStarOutline } from "react-icons/io5";
 export default function TaskControlls(props) {
     return (
         <div className={classes.TaskControlls}>
-            <Button className={classes.edit}>
+            <Button
+                className={classes.edit}
+                onClick={() => props.handleTaskEditBtnClick(props.task.id)}>
                 <AiFillEdit />
             </Button>
             <Button
                 className={classes.important}
-                onClick={() => props.handleTaskImportantClick(props.task.id)}>
+                onClick={() => props.handleTaskImportantBtnClick(props.task.id)}>
                 {props.task.isImportant ? <IoStar /> : <IoStarOutline />}
             </Button>
             <Button
                 className={classes.remove}
-                onClick={() => props.handleTaskRemoveClick(props.task.id)}>
+                onClick={() => props.handleTaskRemoveBtnClick(props.task.id)}>
                 <IoTrash />
             </Button>
         </div>

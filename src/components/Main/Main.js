@@ -9,8 +9,10 @@ export default function Main(props) {
             <TaskList
                 tasks={props.tasks}
                 handleTaskChange={props.handleTaskChange}
-                handleTaskRemoveClick={props.handleTaskRemoveClick}
-                handleTaskImportantClick={props.handleTaskImportantClick}
+                handleTaskRemoveBtnClick={props.handleTaskRemoveBtnClick}
+                handleTaskImportantBtnClick={props.handleTaskImportantBtnClick}
+                handleTaskEditBtnClick={props.handleTaskEditBtnClick}
+                handleTaskEditComplete={props.handleTaskEditComplete}
             />
         </main>
     );

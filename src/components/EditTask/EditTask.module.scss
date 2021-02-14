@@ -1,0 +1,10 @@
+@import "./../../scss/import";
+
+.edit {
+    position: absolute;
+    left: 19px;
+    top: 50%;
+    display: block;
+    transform: translateY(-50%);
+    width: 400px;
+}

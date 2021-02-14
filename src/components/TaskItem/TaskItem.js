@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./TaskItem.module.scss";
 
 import TaskControlls from "./../TaskControlls/TaskControlls";
+import EditTask from "./../EditTask/EditTask";
 
 export default function TaskItem(props) {
     return (
@@ -11,11 +12,22 @@ export default function TaskItem(props) {
                 type="checkbox"
                 checked={props.task.isDone ? true : false}
                 onChange={() => props.handleTaskChange(props.task.id)}></input>
-            <label htmlFor={props.task.id}>{props.task.desc}</label>
+
+            {props.task.isEditing ? (
+                <EditTask
+                    task={props.task}
+                    handleTaskEditBtnClick={props.handleTaskEditBtnClick}
+                    handleTaskEditComplete={props.handleTaskEditComplete}
+                />
+            ) : (
+                <label htmlFor={props.task.id}>{props.task.desc}</label>
+            )}
+
             <TaskControlls
                 task={props.task}
-                handleTaskRemoveClick={props.handleTaskRemoveClick}
-                handleTaskImportantClick={props.handleTaskImportantClick}
+                handleTaskRemoveBtnClick={props.handleTaskRemoveBtnClick}
+                handleTaskImportantBtnClick={props.handleTaskImportantBtnClick}
+                handleTaskEditBtnClick={props.handleTaskEditBtnClick}
             />
         </li>
     );

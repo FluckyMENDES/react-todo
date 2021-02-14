@@ -10,8 +10,10 @@ export default function TaskList(props) {
                 key={task.id}
                 task={task}
                 handleTaskChange={props.handleTaskChange}
-                handleTaskRemoveClick={props.handleTaskRemoveClick}
-                handleTaskImportantClick={props.handleTaskImportantClick}
+                handleTaskRemoveBtnClick={props.handleTaskRemoveBtnClick}
+                handleTaskImportantBtnClick={props.handleTaskImportantBtnClick}
+                handleTaskEditBtnClick={props.handleTaskEditBtnClick}
+                handleTaskEditComplete={props.handleTaskEditComplete}
             />
         );
     });

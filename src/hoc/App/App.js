@@ -14,18 +14,21 @@ export default class App extends Component {
                 desc: "Купить свеклу",
                 isDone: true,
                 isImportant: false,
+                isEditing: false,
             },
             {
                 id: "2",
                 desc: "Помыть кастрюлю",
                 isDone: false,
                 isImportant: false,
+                isEditing: false,
             },
             {
                 id: "3",
                 desc: "Сварить борщ",
                 isDone: false,
                 isImportant: true,
+                isEditing: false,
             },
         ];
 
@@ -43,14 +46,34 @@ export default class App extends Component {
             tasks,
         });
     };
-    handleTaskRemoveClick = (id) => {
+    handleTaskEditBtnClick = (id, e) => {
+        const tasks = this.state.tasks.slice();
+        const task = tasks.find((task) => task.id === id);
+        task.isEditing = !task.isEditing;
+
+        this.setState({
+            tasks,
+        });
+    };
+    handleTaskEditComplete = (id, e) => {
+        const tasks = this.state.tasks.slice();
+        const task = tasks.find((task) => task.id === id);
+        const newValue = e.target.value;
+        task.desc = newValue;
+        task.isEditing = false;
+
+        this.setState({
+            tasks,
+        });
+    };
+    handleTaskRemoveBtnClick = (id) => {
         const tasks = this.state.tasks.slice();
         const newTasks = tasks.filter((task) => task.id !== id);
         this.setState({
             tasks: newTasks,
         });
     };
-    handleTaskImportantClick = (id) => {
+    handleTaskImportantBtnClick = (id) => {
         const tasks = this.state.tasks.slice();
         const task = tasks.find((task) => task.id === id);
         task.isImportant = !task.isImportant;
@@ -67,6 +90,7 @@ export default class App extends Component {
             desc: value,
             isDone: false,
             isImportant: false,
+            isEditing: false,
         };
         const newTasks = tasks.concat(newTask);
 
@@ -82,10 +106,11 @@ export default class App extends Component {
                 <Main
                     tasks={this.state.tasks}
                     handleTaskChange={this.handleTaskChange}
-                    handleTaskRemoveClick={this.handleTaskRemoveClick}
-                    handleTaskImportantClick={this.handleTaskImportantClick}>
-                    Main
-                </Main>
+                    handleTaskRemoveBtnClick={this.handleTaskRemoveBtnClick}
+                    handleTaskImportantBtnClick={this.handleTaskImportantBtnClick}
+                    handleTaskEditBtnClick={this.handleTaskEditBtnClick}
+                    handleTaskEditComplete={this.handleTaskEditComplete}
+                />
                 <Footer handleAddTaskSubmit={this.handleAddTaskSubmit}>Footer</Footer>
             </div>
         );

@@ -1,11 +1,10 @@
 @import "./../../scss/import";
 
 .Main {
+    padding: 1em;
+    padding-top: 60px;
+    padding-bottom: 60px;
     flex-shrink: 0;
     flex-grow: 1;
-    padding: 1em;
-    padding-top: 50px;
-    padding-bottom: 60px;
     color: $color-dark;
-    // overflow-y: auto;
 }

@@ -1,0 +1,34 @@
+@import "./../../scss/import";
+
+.TaskItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $color-main;
+    }
+
+    &.done {
+        text-decoration: line-through;
+    }
+
+    & label {
+        transition: 0.2s;
+        margin-bottom: 0;
+        margin-right: auto;
+
+        &:hover {
+            color: $color-dark-accent;
+        }
+    }
+
+    & input[type="checkbox"] {
+        margin-right: 10px;
+    }
+
+    & input[type="checkbox"],
+    & label {
+        cursor: pointer;
+    }
+}

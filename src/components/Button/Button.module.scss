@@ -1,0 +1,13 @@
+@import "./../../scss/import";
+
+.Button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 10px;
+    color: $color-dark;
+    border: 0;
+    cursor: pointer;
+    transition: 0.2s;
+}

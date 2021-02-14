@@ -1,0 +1,10 @@
+@import "./../../scss/import";
+
+.Header {
+    flex-shrink: 0;
+    flex-grow: 0;
+    color: $color-dark;
+    padding: 0.5em 1em;
+    background-color: $color-main;
+    text-align: center;
+}

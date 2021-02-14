@@ -1,0 +1,36 @@
+@import "./../../scss/import";
+
+.TaskControlls {
+    display: flex;
+}
+
+.important {
+    &:hover {
+        color: $color-warning;
+    }
+    &:active {
+        background-color: $color-warning;
+        color: $color-dark;
+    }
+}
+
+.remove {
+    &:hover {
+        color: $color-danger;
+    }
+    &:active {
+        background-color: $color-danger;
+        color: $color-dark;
+    }
+}
+
+.edit {
+    &:hover {
+        color: $color-dark-accent;
+    }
+
+    &:active {
+        background-color: $color-dark-accent;
+        color: $color-dark;
+    }
+}
